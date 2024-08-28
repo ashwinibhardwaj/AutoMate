@@ -1,0 +1,168 @@
+2024-08-17 22:32:21,261 - WARNING -  * Debugger is active!
+2024-08-17 22:32:21,275 - INFO -  * Debugger PIN: 923-352-128
+2024-08-17 22:33:12,468 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:12] "GET /data_page HTTP/1.1" 200 -
+2024-08-17 22:33:12,720 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:12] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:33:12,742 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:12] "[36mGET /static/js/data_page_script.js HTTP/1.1[0m" 304 -
+2024-08-17 22:33:21,354 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:21] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:33:22,713 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:22] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:33:22,761 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:22] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:33:25,249 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:25] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:33:25,279 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:25] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:33:25,291 - INFO - Model directory ensured at: c:\Users\TCS\Desktop\AutoMate\backend\models
+2024-08-17 22:33:25,319 - INFO - Training model: RandomForest
+2024-08-17 22:33:25,675 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\RandomForest.pkl
+2024-08-17 22:33:25,676 - INFO - Training model: LogisticRegression
+2024-08-17 22:33:25,766 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\LogisticRegression.pkl
+2024-08-17 22:33:25,767 - INFO - Training model: SVC
+2024-08-17 22:33:25,808 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\SVC.pkl
+2024-08-17 22:33:25,809 - INFO - Training model: KNeighbors
+2024-08-17 22:33:26,157 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\KNeighbors.pkl
+2024-08-17 22:33:26,158 - INFO - Training model: GaussianNB
+2024-08-17 22:33:26,176 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\GaussianNB.pkl
+2024-08-17 22:33:26,186 - INFO - Best model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\best_model.pkl
+2024-08-17 22:33:26,186 - ERROR - Error during model training: Model file was not created
+2024-08-17 22:33:26,187 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:26] "[35m[1mPOST /train HTTP/1.1[0m" 500 -
+2024-08-17 22:33:31,993 - INFO - 127.0.0.1 - - [17/Aug/2024 22:33:31] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:35:14,395 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:14] "GET /data_page HTTP/1.1" 200 -
+2024-08-17 22:35:14,442 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:14] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:35:14,442 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:14] "GET /static/js/data_page_script.js HTTP/1.1" 200 -
+2024-08-17 22:35:21,156 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:21] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:35:24,459 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:24] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:35:24,493 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:24] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:35:27,548 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:27] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:35:27,580 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:27] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:35:27,594 - INFO - Model directory ensured at: c:\Users\TCS\Desktop\AutoMate\backend\models
+2024-08-17 22:35:27,596 - INFO - Training model: RandomForest
+2024-08-17 22:35:27,912 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\RandomForest.pkl
+2024-08-17 22:35:27,912 - INFO - Training model: LogisticRegression
+2024-08-17 22:35:27,964 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\LogisticRegression.pkl
+2024-08-17 22:35:27,964 - INFO - Training model: SVC
+2024-08-17 22:35:27,998 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\SVC.pkl
+2024-08-17 22:35:27,998 - INFO - Training model: KNeighbors
+2024-08-17 22:35:28,028 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\KNeighbors.pkl
+2024-08-17 22:35:28,028 - INFO - Training model: GaussianNB
+2024-08-17 22:35:28,048 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\GaussianNB.pkl
+2024-08-17 22:35:28,054 - INFO - Best model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\best_model.pkl
+2024-08-17 22:35:28,055 - ERROR - Error during model training: Model file was not created
+2024-08-17 22:35:28,055 - INFO - 127.0.0.1 - - [17/Aug/2024 22:35:28] "[35m[1mPOST /train HTTP/1.1[0m" 500 -
+2024-08-17 22:38:36,574 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:38:36,575 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:38:36,575 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:38:36,576 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:38:41,376 - WARNING -  * Debugger is active!
+2024-08-17 22:38:41,386 - INFO -  * Debugger PIN: 923-352-128
+2024-08-17 22:38:52,925 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-17 22:38:52,926 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-17 22:38:52,939 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 22:38:55,074 - WARNING -  * Debugger is active!
+2024-08-17 22:38:55,082 - INFO -  * Debugger PIN: 923-352-128
+2024-08-17 22:38:59,409 - INFO - 127.0.0.1 - - [17/Aug/2024 22:38:59] "GET /data_page HTTP/1.1" 200 -
+2024-08-17 22:38:59,586 - INFO - 127.0.0.1 - - [17/Aug/2024 22:38:59] "[36mGET /static/js/data_page_script.js HTTP/1.1[0m" 304 -
+2024-08-17 22:38:59,589 - INFO - 127.0.0.1 - - [17/Aug/2024 22:38:59] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:39:15,339 - INFO - 127.0.0.1 - - [17/Aug/2024 22:39:15] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:39:18,234 - INFO - 127.0.0.1 - - [17/Aug/2024 22:39:18] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:39:18,276 - INFO - 127.0.0.1 - - [17/Aug/2024 22:39:18] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:39:20,498 - INFO - 127.0.0.1 - - [17/Aug/2024 22:39:20] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:39:20,527 - INFO - 127.0.0.1 - - [17/Aug/2024 22:39:20] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:39:20,538 - INFO - Model directory ensured at: c:\Users\TCS\Desktop\AutoMate\backend\models
+2024-08-17 22:39:20,564 - INFO - Training model: RandomForest
+2024-08-17 22:39:20,925 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\RandomForest.pkl
+2024-08-17 22:39:20,925 - INFO - Training model: LogisticRegression
+2024-08-17 22:39:21,004 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\LogisticRegression.pkl
+2024-08-17 22:39:21,004 - INFO - Training model: SVC
+2024-08-17 22:39:21,045 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\SVC.pkl
+2024-08-17 22:39:21,045 - INFO - Training model: KNeighbors
+2024-08-17 22:39:21,379 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\KNeighbors.pkl
+2024-08-17 22:39:21,380 - INFO - Training model: GaussianNB
+2024-08-17 22:39:21,394 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\GaussianNB.pkl
+2024-08-17 22:39:21,401 - INFO - Best model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\best_model.pkl
+2024-08-17 22:39:21,402 - ERROR - Error during model training: Model file was not created
+2024-08-17 22:39:21,402 - INFO - 127.0.0.1 - - [17/Aug/2024 22:39:21] "[35m[1mPOST /train HTTP/1.1[0m" 500 -
+2024-08-17 22:40:48,756 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:48] "GET /data_page HTTP/1.1" 200 -
+2024-08-17 22:40:48,810 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:48] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:40:48,810 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:48] "[36mGET /static/js/data_page_script.js HTTP/1.1[0m" 304 -
+2024-08-17 22:40:54,682 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:54] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:40:56,218 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:56] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:40:56,273 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:56] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:40:58,482 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:58] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:40:58,513 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:58] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:40:58,526 - INFO - Model directory ensured at: c:\Users\TCS\Desktop\AutoMate\backend\models
+2024-08-17 22:40:58,529 - INFO - Training model: RandomForest
+2024-08-17 22:40:58,847 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\RandomForest.pkl
+2024-08-17 22:40:58,847 - INFO - Training model: LogisticRegression
+2024-08-17 22:40:58,904 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\LogisticRegression.pkl
+2024-08-17 22:40:58,904 - INFO - Training model: SVC
+2024-08-17 22:40:58,941 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\SVC.pkl
+2024-08-17 22:40:58,941 - INFO - Training model: KNeighbors
+2024-08-17 22:40:58,978 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\KNeighbors.pkl
+2024-08-17 22:40:58,979 - INFO - Training model: GaussianNB
+2024-08-17 22:40:59,001 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\GaussianNB.pkl
+2024-08-17 22:40:59,008 - INFO - Best model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\best_model.pkl
+2024-08-17 22:40:59,009 - ERROR - Error during model training: Model file was not created
+2024-08-17 22:40:59,010 - INFO - 127.0.0.1 - - [17/Aug/2024 22:40:59] "[35m[1mPOST /train HTTP/1.1[0m" 500 -
+2024-08-17 22:41:55,981 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-17 22:41:55,981 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-17 22:41:56,004 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 22:41:59,570 - WARNING -  * Debugger is active!
+2024-08-17 22:41:59,581 - INFO -  * Debugger PIN: 923-352-128
+2024-08-17 22:42:00,560 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:00] "GET /data_page HTTP/1.1" 200 -
+2024-08-17 22:42:00,758 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:00] "[36mGET /static/js/data_page_script.js HTTP/1.1[0m" 304 -
+2024-08-17 22:42:00,794 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:00] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:42:07,027 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:07] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:42:08,462 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:08] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:42:08,557 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:08] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:42:10,626 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:10] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:42:10,657 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:10] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:42:10,668 - INFO - Model directory ensured at: c:\Users\TCS\Desktop\AutoMate\backend\models
+2024-08-17 22:42:10,699 - INFO - Training model: RandomForest
+2024-08-17 22:42:11,148 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\RandomForest.pkl
+2024-08-17 22:42:11,149 - INFO - Training model: LogisticRegression
+2024-08-17 22:42:11,232 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\LogisticRegression.pkl
+2024-08-17 22:42:11,232 - INFO - Training model: SVC
+2024-08-17 22:42:11,283 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\SVC.pkl
+2024-08-17 22:42:11,283 - INFO - Training model: KNeighbors
+2024-08-17 22:42:11,782 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\KNeighbors.pkl
+2024-08-17 22:42:11,782 - INFO - Training model: GaussianNB
+2024-08-17 22:42:11,817 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\GaussianNB.pkl
+2024-08-17 22:42:11,822 - INFO - Best model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\best_model.pkl
+2024-08-17 22:42:11,822 - ERROR - Error during model training: Model file was not created
+2024-08-17 22:42:11,822 - INFO - 127.0.0.1 - - [17/Aug/2024 22:42:11] "[35m[1mPOST /train HTTP/1.1[0m" 500 -
+2024-08-17 22:44:13,759 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-08-17 22:44:13,761 - INFO - [33mPress CTRL+C to quit[0m
+2024-08-17 22:44:13,783 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 22:44:17,887 - WARNING -  * Debugger is active!
+2024-08-17 22:44:17,904 - INFO -  * Debugger PIN: 923-352-128
+2024-08-17 22:45:07,230 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:07] "GET /data_page HTTP/1.1" 200 -
+2024-08-17 22:45:08,460 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:08] "[36mGET /static/css/data_page_styles.css HTTP/1.1[0m" 304 -
+2024-08-17 22:45:08,462 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:08] "GET /static/js/data_page_script.js HTTP/1.1" 200 -
+2024-08-17 22:45:14,558 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:14] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:45:16,080 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:16] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:45:16,307 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:16] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:45:18,361 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:18] "POST /upload HTTP/1.1" 200 -
+2024-08-17 22:45:18,390 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:18] "POST /preprocess HTTP/1.1" 200 -
+2024-08-17 22:45:18,401 - INFO - Model directory ensured at: c:\Users\TCS\Desktop\AutoMate\backend\models
+2024-08-17 22:45:18,728 - INFO - Training model: RandomForest
+2024-08-17 22:45:19,305 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\RandomForest.pkl
+2024-08-17 22:45:19,305 - INFO - Training model: LogisticRegression
+2024-08-17 22:45:19,460 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\LogisticRegression.pkl
+2024-08-17 22:45:19,460 - INFO - Training model: SVC
+2024-08-17 22:45:19,641 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\SVC.pkl
+2024-08-17 22:45:19,641 - INFO - Training model: KNeighbors
+2024-08-17 22:45:20,221 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\KNeighbors.pkl
+2024-08-17 22:45:20,221 - INFO - Training model: GaussianNB
+2024-08-17 22:45:20,239 - INFO - Model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\GaussianNB.pkl
+2024-08-17 22:45:20,249 - INFO - Best model saved: c:\Users\TCS\Desktop\AutoMate\backend\models\best_model.pkl
+2024-08-17 22:45:20,250 - ERROR - Error during model training: Model file was not created
+2024-08-17 22:45:20,251 - INFO - 127.0.0.1 - - [17/Aug/2024 22:45:20] "[35m[1mPOST /train HTTP/1.1[0m" 500 -
+2024-08-17 22:45:33,590 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:45:33,591 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:45:33,591 - INFO -  * Detected change in 'c:\\Users\\TCS\\Desktop\\AutoMate\\backend\\model_training.py', reloading
+2024-08-17 22:45:34,656 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 22:45:45,502 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 22:46:37,316 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 22:47:43,370 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 23:19:24,060 - INFO -  * Restarting with watchdog (windowsapi)
+2024-08-17 23:33:47,227 - INFO -  * Restarting with watchdog (windowsapi)
