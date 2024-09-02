@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template, redirect, url_for, send_file, flash, session
+from flask import Flask, request, jsonify, render_template, redirect, url_for, send_file, flash, session, send_from_directory
 import pandas as pd
 import os
 from werkzeug.utils import secure_filename
@@ -33,6 +33,11 @@ os.makedirs(app.config['MODEL_FOLDER'], exist_ok=True)
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
+
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static'),
+                               'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 @app.route('/')
 def home_page():
