@@ -1,0 +1,576 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* General Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    width: 100%;
+    left: 0;
+    padding: 2px 0;
+    z-index: 12;
+    border-bottom: 1px solid rgba(255, 255, 255, 0);
+    box-shadow: 0 4px 10px rgba(80, 80, 80, 0.164);
+}
+
+nav .menu {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+@keyframes gradientTextAnimation {
+    0% {
+        background: linear-gradient(to right, #d1a3a3, #96badf); 
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    50% {
+        background: linear-gradient(to right, #96badf, #d1a3a3); 
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+    100% {
+        background: linear-gradient(to right, #d1a3a3, #96badf); 
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+.menu .logo a {
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 600;
+    display: inline-block;
+    background: linear-gradient(to right, #d1a3a3, #96badf); 
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: gradientTextAnimation 5s ease infinite;
+}
+
+.menu ul {
+    display: inline-flex;
+}
+
+.menu ul li {
+    list-style: none;
+    margin-left: 7px;
+}
+
+.menu ul li:first-child {
+    margin-left: 0px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #e2e2e2;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background: #ffffff2a;
+    color: rgb(255, 255, 255);
+}
+
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Progress Bar */
+.progress-bar-section {
+    padding: 20px 0;
+}
+
+.progress-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 7%;
+    padding: 0 20px;
+}
+
+.progress-bar {
+    height: 20px;
+    width: 0;
+    border: 1px solid rgb(255, 255, 255);
+    background-color: #4caf50; /* Default green color */
+    transition: width 0.4s ease;
+}
+
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: #10aa0b; 
+    border-top-right-radius: 5px;    /* Ensures the top-right corner remains square */
+    border-bottom-right-radius: 5px;
+    height: 10px;
+}
+
+.progress-step {
+    flex: 1;
+    height: 100%;
+    background-color: #10aa0b; /* Default color for steps */
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Smooth transition for color changes */
+}
+
+.progress-step.completed {
+    background-color: #10aa0b; /* Color for completed steps */
+}
+
+.progress-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.progress-labels span {
+    font-size: 14px;
+    color: #333; /* Dark text for labels */
+}
+
+/* Upload Section */
+.upload-section {
+    padding: 45px 20px;
+}
+
+.upload-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.upload-content {
+    text-align: center;
+    position: relative;
+}
+
+.upload-content .title {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.info-icon {
+    font-size: 30px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.info-icon:hover {
+    color: #0400fffa;
+}
+
+.upload-content .description {
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.custom-file-upload {
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    gap: 10px; 
+}
+
+.file-upload-button {
+    background-color: #4CAF50; 
+    color: white; 
+    padding: 7px 15px; 
+    border-radius: 5px; 
+    border: none; 
+    cursor: pointer; 
+    font-size: 12px;
+    text-align: center;
+    transition: background-color 0.3s ease; 
+}
+
+.file-upload-button:hover {
+    background-color: #45a049; 
+}
+
+#file-name {
+    font-size: 16px; 
+}
+
+
+.upload-btn {
+    height: 55px;
+    width: 170px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    border: 2px solid white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: none;
+}
+
+.upload-btn:hover {
+    background: white;
+    color: black;
+}
+
+
+/* Preprocessing Section */
+.preprocessing-section {
+    display:none;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.preprocessing-content {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    text-align: center;
+}
+
+.preprocessing-content .title {
+    color: #fff;
+    font-size: 45px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.preprocessing-content .description {
+    color: #fff;
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.btns {
+    height: 55px;
+    width: 170px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 20px;
+    border: 2px solid white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #fff;
+    background: none;
+}
+
+.btns:hover {
+    background: white;
+    color: black;
+}
+
+/* Modal for Info Icon */
+.info-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+    opacity: 0; /* Start as invisible */
+}
+
+.info-content {
+    background: white;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+}
+
+.info-content h2 {
+    margin-top: 0;
+}
+.info-content ol {
+    padding-left: 20px; 
+    margin-top: 10px; 
+    list-style-position: inside; 
+}
+
+.info-content li {
+    text-align: left; 
+    margin-bottom: 5px; 
+}
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bolder;
+    cursor: pointer;
+    color: #000;
+    padding-left: 10px;
+    padding-right: 10px;
+    transition: .3s ease;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.096) ;
+}
+
+.close:hover {
+    background: rgba(0, 0, 0, 0.205) ;
+}
+
+.next-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: not-allowed; 
+    background-color: #cccccc; 
+    color: #666666; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.next-btn:enabled {
+    background-color: #4CAF50; 
+    color: white; 
+    cursor: pointer; 
+}
+
+.next-btn:enabled:hover {
+    background-color: #45a049;
+}
+
+.next-btn:enabled:active {
+    background-color: #397d3b; 
+}
+
+/* General section styling */
+.model-generation-section {
+    padding: 20px;
+    background-color: #f5f5f500; /* Light background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Content styling */
+.model-generation-content {
+    max-width: 1200px; /* Maximum width of content */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px;
+}
+
+/* Title styling */
+.model-generation-content .title {
+    font-size: 2rem; /* Font size for the title */
+    margin-bottom: 20px; /* Space below the title */
+    text-align: center; /* Center align the title text */
+}
+
+/* Button styling */
+#train-btn {
+    display: block;
+    margin: 0 auto; /* Center the button horizontally */
+    padding: 10px 20px; /* Padding inside the button */
+    font-size: 1rem; /* Font size */
+    color: #fff; /* Text color */
+    background-color: #007bff; /* Background color */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+#train-btn:hover {
+    background-color: #0056b3; /* Darker background on hover */
+}
+
+/* Model details table styling */
+#model-details {
+    margin-top: 20px; /* Space above the table */
+    text-align: center; /* Center align table content */
+}
+
+#model-details table {
+    width: 100%; /* Full width of container */
+    border-collapse: collapse; /* Collapse borders for table */
+    margin: 0 auto; /* Center the table */
+}
+
+#model-details th, #model-details td {
+    border: 1px solid #ddd; /* Light gray border for table cells */
+    padding: 8px; /* Padding inside table cells */
+}
+
+#model-details th {
+    background-color: #6200ff27; /* Background color for table headers */
+    color: #fff; /* Text color for headers */
+    text-align: left; /* Left align header text */
+}
+
+#model-details tr:nth-child(even) {
+    background-color: #f2f2f200; /* Alternate row background color */
+}
+
+/* Best model summary styling */
+#best-model-summary {
+    margin-top: 20px; /* Space above the summary */
+    text-align: left; /* Center align the summary text */
+    font-size: 1.2rem; /* Font size for the summary text */
+    font-weight: bold; /* Bold text for emphasis */
+}
+.download-btns{
+    display:flex;
+    justify-content:space-around;
+    
+}
+#downloadButton {
+    height: 55px;
+    width: 170px;
+    border-radius: 5px;
+    border: 2px solid #fafafa; /* Example color, adjust as needed */
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #ffffff; /* Example color, adjust as needed */
+    background: none;
+    text-decoration: none; /* Removes underline if it's an anchor tag */
+}
+#downloadButton:hover {
+    background: #ffffff; /* Change background on hover */
+    color: #0004ff; /* Change text color on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+.download-btn {
+    height: 55px;
+    width: 170px;
+    border-radius: 5px;
+    border: 2px solid #fafafa;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 0 10px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    background: none;
+    text-decoration: none;
+    
+}
+.download-btn:hover {
+    background: #ffffff; /* Change background on hover */
+    color: #0004ff; /* Change text color on hover */
+    text-decoration: none; /* Ensure no underline on hover */
+}
+
+
+/* @media (max-width: 768px) {
+    .menu ul {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu {
+        padding: 10px;
+    }
+
+    .progress-container {
+        padding: 0 10px;
+    }
+
+    .upload-container, .preprocessing-content {
+        padding: 10px;
+    }
+
+    .progress-bar {
+        height: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu .logo a {
+        font-size: 24px;
+    }
+
+    .menu ul {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .upload-btn, .btns {
+        width: 100%;
+    }
+
+    .progress-bar {
+        height: 12px;
+    }
+
+    .progress-labels span {
+        font-size: 12px;
+    }
+} */
+
+/* To be included in JS for toggling */
+.hidden {
+    display: none;
+}

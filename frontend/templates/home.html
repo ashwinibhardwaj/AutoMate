@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMate | Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <div id="mobile-warning">
+        <h1>Switch to a Desktop View</h1>
+        <p>This site is only suitable for desktop screens. Please switch to a desktop site in your browser settings.</p>
+    </div>
+    
+    <div id="desktop-content">
+        <nav>
+            <div class="menu">
+                <div class="logo">
+                    <a href="#">AutoMate</a>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                    <li><a href="{{ url_for('data_page') }}">Upload Dataset</a></li>
+                    <li><a href="{{ url_for('about_page') }}">About</a></li>
+                    <li><a href="{{ url_for('feedback_page') }}">Feedback</a></li>
+                </ul>
+                <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            </div>
+        </nav>
+
+        <div class="shape1"></div>
+        <div class="shape3"></div>
+        <div class="shape4"></div>
+        <div class="shape5"></div>
+        <div class="shape6"></div>
+
+        <div class="center">
+            <div class="title">Create Your Own ML Models</div>
+            <div class="sub_title">Just upload the dataset and see magic <i style="font-size:24px" class="fa">&#xf0d0;</i></div>
+            <div class="btns">
+                <a href="{{ url_for('data_page') }}" style="text-decoration: none;">
+                    <button id="get-started-button">Get Started <span>&#10132;</span></button>
+                </a>
+            </div>
+        </div>
+
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-text">Upload Dataset</div>
+            </div>
+            <span class="step-arrow">&#10132;</span> <!-- Right arrow -->
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-text">Preprocessing</div>
+            </div>
+            <span class="step-arrow">&#10132;</span> <!-- Right arrow -->
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-text">Model Training</div>
+            </div>
+            <span class="step-arrow">&#10132;</span> <!-- Right arrow -->
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-text">Model is ready!</div>
+            </div>
+        </div>
+    </div>
+
+
+    <section id="features">
+        <h2>Why Choose AutoMate?</h2>
+        <div class="features-container">
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Fast Processing</h3>
+                    <p>Our tool processes your data and trains models quickly, giving you results in minutes.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Reliable Models</h3>
+                    <p>We ensure that the models we provide are accurate and reliable for your needs.</p>
+                </div>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>User-Friendly</h3>
+                    <p>AutoMate is designed with simplicity in mind, making it easy for anyone to use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 AutoMate. All rights reserved.</p>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menuItems = document.querySelector('.menu-items');
+            if (menuItems) {
+                menuItems.classList.toggle('active');
+                console.log('Menu toggled');
+            } else {
+                console.error('Menu items not found');
+            }
+        }
+
+        function checkScreenSize() {
+            const isDesktop = window.innerWidth >= 1024;
+            document.getElementById('desktop-content').style.display = isDesktop ? 'block' : 'none';
+            document.getElementById('mobile-warning').style.display = isDesktop ? 'none' : 'block';
+        }
+
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
+    </script>
+</body>
+</html>
