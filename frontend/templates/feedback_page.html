@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+    <style>
+        /* Additional styles specific to Feedback page */
+        .feedback-page {
+            padding: 20px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #fff;
+            text-align: center;
+        }
+
+        .feedback-page .title {
+            margin-top: 50px;
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form, .feedback-list {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feedback-form {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .feedback-form h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feedback-form input, .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .feedback-form button {
+            background-color: #a9ff1e;
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .feedback-form button:hover {
+            background-color: #8ccf00;
+        }
+
+        .feedback-list {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-list h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .feedback-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            margin-bottom: 10px;
+        }
+
+        .feedback-item:last-child {
+            border-bottom: none;
+        }
+
+        .feedback-item p {
+            margin: 0;
+            font-size: 16px;
+        }
+
+        footer.contact-us {
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            padding: 1px;
+            border-radius: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            z-index: 1000; 
+            
+        }
+        
+        footer.contact-us h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0%;
+        }
+        
+        footer.contact-us .contact-info {
+            display: flex;
+            justify-content:space-between;
+            font-size: 16px;
+        }
+        
+        footer.contact-us .contact-info a {
+            color: #a9ff1e;
+            text-decoration: none;
+        }
+        
+        footer.contact-us .contact-info a:hover {
+            text-decoration: underline;
+        }
+        .contact-info i {
+            color: #ff0000; /* Icon color */
+            margin-right: 8px; /* Spacing between icon and text */
+        }
+
+        .flash-messages {
+            position: fixed;
+            top: 10px; /* Position at the top of the page */
+            left: 50%;
+            transform: translateX(-50%); /* Center horizontally */
+            z-index: 1000;
+            text-align: center;
+        }
+        
+        .alert {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: inline-block; 
+        }
+        
+        .alert-success {
+            background-color: #dff0df;
+            border-color: #c6f7d6;
+            color: #3e8e41;
+        }
+        
+        
+        
+    </style>
+</head>
+<body>
+    <div id="mobile-warning">
+        <h1>Switch to a Desktop View</h1>
+        <p>This site is only suitable for desktop screens. Please switch to a desktop site in your browser settings.</p>
+    </div>
+    
+    <div id="desktop-content">
+        <nav>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="flash-messages">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="menu">
+                <div class="logo">
+                    <a href="#">AutoMate</a>
+                </div>
+                <ul class="menu-items">
+                    <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                    <li><a href="{{ url_for('data_page') }}">Upload Dataset</a></li>
+                    <li><a href="{{ url_for('about_page') }}">About</a></li>
+                    <li><a href="{{ url_for('feedback_page') }}">Feedback</a></li>
+                </ul>
+                <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+            </div>
+        </nav>
+
+        <div class="feedback-page">
+            
+            <h1 class="title">Feedback</h1>
+
+            <div class="feedback-form">
+                <h2>Submit Your Feedback</h2>
+                <form action="{{ url_for('feedback') }}" method="post">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Feedback" required></textarea>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    
+
+        <footer class="contact-us">
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:support@automate.com" target="_blank">support@automate.com </a><i class="fas fa-envelope"></i></p>
+                <p><strong>Phone:</strong> <a href="tel:+1234567890" target="_blank">+123-456-7890 </a><i class="fas fa-phone-alt"></i></p>
+                <p><strong>Address: </strong>
+                <a href="https://www.google.com/maps/search/?api=1&query=Jaipur,+Rajasthan,+India" target="_blank">
+                    Jaipur, Rajasthan (India)</a> <i class="fas fa-map-pin"></i>
+                </p>            
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function checkScreenSize() {
+            // Detect if we're in desktop mode based on width
+            const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    
+            // Detect if the user has manually requested a desktop site on a mobile device
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isMobileDevice = /android|ipad|iphone|ipod/i.test(userAgent.toLowerCase());
+            const requestedDesktopSite = isMobileDevice && isDesktop;
+    
+            document.getElementById('desktop-content').style.display = (isDesktop || requestedDesktopSite) ? 'block' : 'none';
+            document.getElementById('mobile-warning').style.display = (isDesktop || requestedDesktopSite) ? 'none' : 'block';
+        }
+    
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    alert.remove(); // Remove the alert from the DOM after 5 seconds
+                }, 4000); // Match the timeout with the animation duration
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Dataset</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/data_page_styles.css') }}"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+</head>
+<body>
+    <div id="mobile-warning">
+        <h1>Switch to a Desktop View</h1>
+        <p>This site is only suitable for desktop screens. Please switch to a desktop site in your browser settings.</p>
+    </div>
+
+    <div id="desktop-content">
+        <nav>
+            <div class="menu">
+                <div class="logo"><a href="#">AutoMate</a></div>
+                <ul>
+                    <li><a href="{{ url_for('home_page') }}">Home</a></li>
+                    <li><a href="{{ url_for('data_page') }}">Upload Dataset</a></li>
+                    <li><a href="{{ url_for('about_page') }}">About</a></li>
+                    <li><a href="{{ url_for('feedback_page') }}">Feedback</a></li>
+                </ul>
+                <div class="menu-icon">&#9776;</div>
+            </div>
+        </nav>
+        
+        <section class="progress-bar-section">
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar">
+                    <div id="progress-step-1" class="progress-step"></div>
+                    <div id="progress-step-2" class="progress-step"></div>
+                    <div id="progress-step-3" class="progress-step"></div>
+                    <div id="progress-step-4" class="progress-step"></div>
+                </div>
+                <div class="progress-labels">
+                    <span>Upload</span>
+                    <span>Preprocess</span>
+                    <span>Build</span>
+                    <span>Download</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section upload-section active" id="upload-section">
+            <div class="upload-container">
+                <div class="upload-content">
+                    <h1 class="title">Upload Your Dataset 
+                        <span id="info-icon" class="info-icon">
+                            <i class="fa fa-info-circle"></i>
+                        </span>
+                    </h1>
+                    <p class="description">Please upload your dataset in CSV format.</p>
+                    <div class="custom-file-upload">
+                        <label for="dataset-file" class="file-upload-button">Choose File</label>
+                        <input type="file" id="dataset-file" accept=".csv" style="display: none;">
+                        <span id="file-name">No file chosen</span>
+                    </div>
+                    <button id="upload-btn" type="button" class="upload-btn">Upload</button>
+                    <button id="next-btn" type="button" class="next-btn" disabled>Next</button>
+                    <p id="message"></p>
+                </div>
+            </div>
+            <div id="info-modal" class="info-modal">
+                <div class="info-content">
+                    <span class="close">&times;</span>
+                    <h2>Upload Instructions</h2>
+                    <p>Here are the rules and guidelines for uploading your dataset:</p>
+                    <ol>
+                        <li>Ensure your dataset contains the target column, named 'target' itself.</li>                    
+                        <li>Include headers(column names) in your CSV file.</li>
+                        <li>Avoid special characters in column names.</li>
+                        <li>Ensure your dataset is in CSV format.</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="section preprocessing-section" id="preprocessing-section">
+            <div class="preprocessing-content">
+                <h1 class="title">Data Preprocessing</h1>
+                <p class="description">The preprocessing stage involves cleaning and preparing your dataset for training. This step is crucial for building accurate machine learning models.</p>
+                <form id="preprocessing-form">
+                    <button id="start-preprocessing-btn" type="submit" class="btns">Start Preprocessing</button>
+                </form>
+                <div id="preprocessing-messages"></div>
+                <button id="next-btn2" type="button" class="next-btn" disabled>Next</button>
+            </div>
+        </section>
+
+        <section class="section model-generation-section" id="model-generation-section" style="display: none;">
+            <div class="model-generation-content">
+                <h1 class="title">Model Generation</h1>
+                <button id="train-btn">Train Models</button>
+                <div id="model-details" class="table"></div>
+                <div id="best-model-summary"></div>
+                <div class= "download-btns">
+                    <form action="/download_best_model" method="get">
+                        <button type="submit" id="downloadButton" style="display:none; text-decoration:none;">Download Model</button>
+                    </form>
+                    <form action="/download_preprocessed_file" method="post">
+                        <button type="submit" class="download-btn" id="download-btn" style="display:none; text-decoration:none;">Download Preprocessed File</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/data_page_script.js') }}"></script>
+    <script>
+        function checkScreenSize() {
+            // Detect if we're in desktop mode based on width
+            const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    
+            // Detect if the user has manually requested a desktop site on a mobile device
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isMobileDevice = /android|ipad|iphone|ipod/i.test(userAgent.toLowerCase());
+            const requestedDesktopSite = isMobileDevice && isDesktop;
+    
+            document.getElementById('desktop-content').style.display = (isDesktop || requestedDesktopSite) ? 'block' : 'none';
+            document.getElementById('mobile-warning').style.display = (isDesktop || requestedDesktopSite) ? 'none' : 'block';
+        }
+    
+        window.addEventListener('load', checkScreenSize);
+        window.addEventListener('resize', checkScreenSize);
+
+        const fileUploadInput = document.getElementById('dataset-file');
+        const fileNameSpan = document.getElementById('file-name');
+
+        fileUploadInput.addEventListener('change', function() {
+            fileNameSpan.textContent = this.files.length ? this.files[0].name : 'No file chosen';
+        });
+
+        
+
+    </script>
+</body>
+</html>
