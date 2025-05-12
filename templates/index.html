@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoMate - Revolutionizing AutoML</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">
+        <div class="brand">
+          <a href="#"><i class="fa-solid fa-robot"></i> AutoMate</a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="#hero" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#process" class="nav-link">Process</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <header class="hero animate-on-scroll" id="hero">
+    <div class="hero-container">
+      <!-- Left: Text Content -->
+      <div class="hero-text">
+        <h1>Welcome to AutoMate</h1>
+        <p>
+          Revolutionize your AutoML workflow with cutting-edge automation.
+          From data preprocessing to model optimization, we've got you covered.
+        </p>
+        <a href="#features" class="cta-button">Explore Features</a>
+        <a href="{{ url_for('registration_page') }}" class="cta-button">Register as Prime User</a>
+      </div>
+      <!-- Right: Image with Wavy Border -->
+      <div class="hero-image">
+        <img src="{{ url_for('static', filename='assets/hero_img.jpg') }}" alt="Image1" style="width:55%">
+        <!-- SVG Wave Overlay for a Wavy Border Effect -->
+        <svg class="hero-wave" viewBox="0 0 500 150" preserveAspectRatio="none">
+          <path d="M0,0 C150,100 350,0 500,100 L500,150 L0,150 Z" fill="#ffffff"></path>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="section about-section animate-on-scroll">
+    <div class="container">
+      <h2>About AutoMate</h2>
+      <p>
+        AutoMate is an advanced AutoML platform designed to simplify and accelerate your machine learning processes.
+        Our intuitive interface and powerful backend ensure you can focus on extracting insights from your data.
+      </p>
+      <!-- New Card Layout for Additional Content -->
+      <div class="about-cards">
+        <div class="about-card animate-on-scroll">
+          <h3>Our Vision</h3>
+          <p>
+            We envision a future where machine learning is accessible to everyone, empowering businesses and individuals to harness the power of AI effortlessly.
+          </p>
+        </div>
+        <div class="about-card animate-on-scroll">
+          <h3>Our Mission</h3>
+          <p>
+            Our mission is to streamline the end-to-end ML workflow by automating data preprocessing, model training, and evaluation—enabling faster and more informed decision-making.
+          </p>
+        </div>
+        <div class="about-card animate-on-scroll">
+          <h3>Our Values</h3>
+          <p>
+            At AutoMate, we believe in innovation, transparency, and empowerment. Our solutions are built on trust and designed to deliver reliable, scalable, and intuitive AI experiences.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Linear Separator -->
+  <div class="linear-separator animate-on-scroll"></div>
+
+  <!-- Features Section -->
+  <section id="features" class="section features-section animate-on-scroll">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="features-grid">
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-filter"></i>
+          <h3>Auto Feature Selection</h3>
+          <p>Automatically filter out irrelevant data to build efficient models.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-sliders-h"></i>
+          <h3>Hyperparameter Tuning</h3>
+          <p>Optimize model performance with automated tuning techniques.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-chart-line"></i>
+          <h3>Model Comparison</h3>
+          <p>Compare multiple models side-by-side to find the best fit for your data.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-lightbulb"></i>
+          <h3>Explainability</h3>
+          <p>Gain deep insights into your model’s decision-making with explainability tools.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <i class="fa-solid fa-chart-pie"></i>
+          <h3>EDA Summary</h3>
+          <p>Generate comprehensive exploratory data analysis reports instantly.</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <br><br><br>
+          <a href="/upload_page" class="cta-button">
+            Get Started <i class="fa-solid fa-arrow-right" style="color: #ff5a5f; font-size: 1.2rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Linear Separator -->
+  <div class="linear-separator animate-on-scroll"></div>
+
+  <!-- Prime Features Section -->
+  <!-- Prime Features Section -->
+<!-- Advanced Preprocessing Features Section -->
+<section id="advanced-preprocessing" class="section advanced-preprocessing-section animate-on-scroll">
+  <div class="container">
+    <h2>Advanced Preprocessing Features</h2>
+    <p>
+      As a Prime User, unlock exclusive advanced data preparation techniques that go beyond the basics:
+    </p>
+    <ul class="feature-list">
+      <li>
+        <i class="fa-solid fa-check"></i>
+        <span>Custom Outlier Detection & Removal</span>
+        <ul class="sub-points">
+          <li>Statistical and model-based outlier identification</li>
+          <li>Adaptive thresholds tailored to your data</li>
+        </ul>
+      </li>
+    
+      <li>
+        <i class="fa-solid fa-check"></i>
+        <span>Feature Engineering & Interaction Detection</span>
+        <ul class="sub-points">
+          <li>Generate polynomial features and interactions</li>
+          <li>Leverage domain-specific transformation strategies</li>
+        </ul>
+      </li>
+      <li>
+        <i class="fa-solid fa-check"></i>
+        <span>Advanced Dimensionality Reduction</span>
+        <ul class="sub-points">
+          <li>PCA, t-SNE, and UMAP integrations</li>
+          <li>Visual insights for feature clustering</li>
+        </ul>
+      </li>
+    </ul><br><br>
+    <a href="{{ url_for('registration_page') }}" class="cta-button">Register as Prime User</a>
+  </div>
+</section>
+
+
+  <!-- Linear Separator -->
+  <div class="linear-separator animate-on-scroll"></div>
+
+  <!-- Process Section -->
+  <section id="process" class="section process-section animate-on-scroll">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="process-steps">
+        <div class="process-step animate-on-scroll">
+          <div class="step-icon"><i class="fa-solid fa-upload"></i></div>
+          <h3>Upload Data</h3>
+          <p>Import your datasets effortlessly in various formats.</p>
+        </div>
+        <div class="process-step animate-on-scroll">
+          <div class="step-icon"><i class="fa-solid fa-cogs"></i></div>
+          <h3>Preprocess</h3>
+          <p>Automatically clean and transform your data for optimal results.</p>
+        </div>
+        <div class="process-step animate-on-scroll">
+          <div class="step-icon"><i class="fa-solid fa-robot"></i></div>
+          <h3>Train Models</h3>
+          <p>Run multiple models concurrently to determine the best performer.</p>
+        </div>
+        <div class="process-step animate-on-scroll">
+          <div class="step-icon"><i class="fa-solid fa-check"></i></div>
+          <h3>Evaluate & Export</h3>
+          <p>Review metrics and export the optimal model for production use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Linear Separator -->
+  <div class="linear-separator animate-on-scroll"></div>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section contact-section animate-on-scroll">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>
+        Have questions or need support? Get in touch with us via our social channels or send us an email.
+      </p>
+      <div class="contact-icons">
+        <a href="#" class="contact-icon"><i class="fa-brands fa-twitter"></i></a>
+        <a href="#" class="contact-icon"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" class="contact-icon"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:support@automate.com" class="contact-icon"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 AutoMate. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

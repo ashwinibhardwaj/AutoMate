@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register as Prime User | AutoMate</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome (for logo icon) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <style>
+    /* Base Styles with Textured Background */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      /* Using a gradient overlay blended with a subtle textured image */
+      background: linear-gradient(135deg, rgba(246,249,252,0.85), rgba(233,239,245,0.85)),
+                  url('https://www.transparenttextures.com/patterns/asfalt-light.png');
+      background-blend-mode: overlay;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    /* Watermark Background using a pseudo-element on body */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: 50%;
+      opacity: 0.05;
+      z-index: -1;
+    }
+    
+    /* Registration Container */
+    .registration-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 0;
+    }
+    
+    /* Full Width & Full Height Registration Card */
+    .registration-wrapper {
+      display: flex;
+      flex-direction: row;
+      width: 100vw;
+      height: 100vh;
+      background: #fff;
+      border-radius: 0; /* Removed rounded corners for full screen */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0);
+      overflow: hidden;
+    }
+    
+    /* Branding Side */
+    .branding-side {
+      flex: 1;
+      background-size: cover;
+      position: relative;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+    
+    /* Semi-transparent overlay on branding side */
+    .branding-side::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #ff5a5f, #f6b93b);
+      z-index: 1;
+    }
+    
+    /* Branding content */
+    .branding-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    
+    .branding-content .logo {
+      font-size: 3rem;
+      color: rgb(255, 65, 65);
+      margin-bottom: 10px;
+    }
+    
+    .branding-content .brand-name {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    
+    .branding-content .tagline {
+      font-size: 1rem;
+      font-style: italic;
+    }
+    
+    /* Registration Form Side */
+    .registration-form {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .registration-form h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+      text-align: center;
+    }
+    
+    .registration-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .registration-form label {
+      font-size: 0.9rem;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    
+    .registration-form input {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    
+    .registration-form button {
+      padding: 12px;
+      background: #ff5a5f;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .registration-form button:hover {
+      background: #e14e50;
+    }
+    
+    .registration-form .alternative {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    
+    .registration-form .alternative a {
+      color: #ff5a5f;
+      text-decoration: none;
+    }
+    
+    .registration-form .alternative a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Flash messages styling */
+    .flash-messages {
+      margin-bottom: 20px;
+    }
+    .flash-messages .message {
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 0.9rem;
+    }
+    .flash-messages .success {
+      background: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+    }
+    .flash-messages .danger {
+      background: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .registration-wrapper {
+        flex-direction: column;
+        height: auto;
+      }
+      
+      .branding-side {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Registration Container -->
+  <div class="registration-container">
+    <div class="registration-wrapper">
+      <!-- Branding Side (placed beside the registration form) -->
+      <div class="branding-side">
+        <div class="branding-content">
+          <div class="logo"><i class="fa-solid fa-robot"></i></div>
+          <div class="brand-name">AutoMate</div>
+          <div class="tagline">Revolutionizing AutoML</div>
+        </div>
+      </div>
+      <!-- Registration Form Side -->
+      <div class="registration-form">
+        <h2>Register as Prime User</h2>
+        
+        <!-- Flash messages block -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="message {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('register') }}" method="POST">
+          <label for="username">Full Name</label>
+          <input type="text" name="username" id="username" placeholder="Enter your name" required>
+          
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" placeholder="Enter your email" required>
+        
+          <label for="prime_id">Prime ID</label>
+          <input type="text" name="prime_id" id="prime_id" placeholder="Generate a unique Prime ID" required>
+          
+          <button type="submit">Register</button>
+        </form>
+        <p class="alternative">Already registered? <a href="{{ url_for('index') }}">Explore AutoMate</a></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

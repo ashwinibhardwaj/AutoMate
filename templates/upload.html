@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AutoMate - Upload & Preprocess Dataset</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/upload_styles.css') }}">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="brand">
+        <a href="index.html"><i class="fa-solid fa-robot"></i> AutoMate</a>
+      </div>
+      <div class="menu-toggle" id="mobile-menu">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item"><a href="index.html#hero" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="index.html#features" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="index.html#process" class="nav-link">Process</a></li>
+        <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Upload Section -->
+  <section id="upload-section" class="section active">
+    <div class="container">
+      <header class="hero animate-on-scroll" id="hero">
+        <div class="hero-container">
+          <div class="hero-text">
+            <h1>
+              Upload Your Dataset 
+              <span id="info-icon" class="info-icon">
+                <i class="fa fa-info-circle rotate-y"></i>
+                <i class="fas fa-hand-point-left animated-finger"></i>
+              </span>
+            </h1>
+            <p>
+              Let AutoMate handle your ML workflow. Upload your dataset, process data, train models, and download the best model effortlessly.
+            </p>
+            <form id="file-upload-form" enctype="multipart/form-data">
+              <input type="file" name="dataset" accept=".csv, .xls, .xlsx" required>
+              <button type="submit" class="cta-button">Upload</button>
+            </form>
+            <!-- Message area for upload responses -->
+            <div id="message-area"></div>
+          </div>
+          <div class="hero-image">
+            <img src="{{ url_for('static', filename='assets/upload_img.jpg') }}" alt="Upload Image" style="width:55%">
+            <svg class="hero-wave" viewBox="0 0 300 150" preserveAspectRatio="none">
+              <path d="M0,18 C90,78 210,-12 300,42 L300,150 L0,150 Z" fill="#ffffff"></path>
+            </svg>
+          </div>
+        </div>
+      </header>
+    </div>
+  </section>
+
+  <!-- Info Modal -->
+  <div id="info-modal" class="info-modal">
+    <div class="info-content">
+      <span class="close">&times;</span>
+      <h2>Upload Instructions</h2>
+      <p>Here are the guidelines for uploading your dataset:</p>
+      <ol>
+        <li>Ensure your dataset contains the target column named <strong>target</strong>.</li>
+        <li>Include headers (column names) in your CSV file.</li>
+        <li>Avoid special characters in column names.</li>
+        <li>Ensure your dataset is in CSV format.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Preprocessing Section (Hidden by default) -->
+  <!-- Preprocessing Section (Hidden by default) -->
+<section id="preprocessing-section" class="section">
+  <div class="container">
+    <h1>Preprocessing</h1>
+    <p>Your file is valid. Click the button below to start preprocessing.</p>
+    <button id="preprocess-btn" class="cta-button">Start Preprocessing</button>
+    <br>
+    <div id="preprocess-message"></div>
+    <div id="preprocess-logs"></div>
+    <br>
+    <!-- A download link will be revealed after successful preprocessing -->
+    <a id="download-link" class="cta-button" href="{{ url_for('download_processed') }}" style="display: none;">Download Processed File</a>
+    <!-- Next button disabled by default -->
+    <button id="training" class="cta-button" disabled>Next: Train Model</button>
+  </div>
+</section>
+
+
+  <!-- Model Training Section (Initially hidden) -->
+  <section id="training-section" class="section">
+    <div class="container">
+      <h1>Model Training</h1>
+      <p>Click the button below to start training and evaluate different models.</p>
+      <button id="train-model-btn" class="cta-button">Start Training</button>
+      <br><br>
+
+            <!-- Training Logs -->
+      <div id="training-logs" class="logs-area">
+        <!-- Training progress or log messages will appear here -->
+      </div>
+      <!-- Best Model Details -->
+      <div id="best-model-details" class="best-model-details">
+        <!-- Best model details will be displayed here -->
+      </div>
+      <!-- Model Metrics Table -->
+      <div id="model-metrics" class="metrics-card">
+        <!-- Metrics table will be built dynamically -->
+      </div>
+      <a id="download-model-btn" class="cta-button" href="{{ url_for('download_model') }}" style="display: none;">
+        Download Trained Model
+      </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 AutoMate. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Custom JavaScript -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // --- Info Modal Code ---
+      const infoIcon = document.getElementById('info-icon');
+      const infoModal = document.getElementById('info-modal');
+      const closeBtn = document.querySelector('.info-modal .close');
+    
+      if (infoIcon && infoModal && closeBtn) {
+        infoIcon.addEventListener('click', () => {
+          infoModal.style.display = 'flex';
+          setTimeout(() => {
+            infoModal.style.opacity = 1;
+          }, 10);
+        });
+    
+        closeBtn.addEventListener('click', () => {
+          infoModal.style.opacity = 0;
+          setTimeout(() => {
+            infoModal.style.display = 'none';
+          }, 500);
+        });
+      }
+    
+      // --- Upload Section: AJAX file upload ---
+      const uploadForm = document.getElementById('file-upload-form');
+      uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const messageArea = document.getElementById('message-area');
+        messageArea.innerHTML = ''; // Clear previous messages
+    
+        const formData = new FormData(this);
+    
+        fetch("{{ url_for('upload_file') }}", {
+          method: "POST",
+          body: formData
+        })
+        .then(response => response.json().then(data => ({ status: response.status, body: data })))
+        .then(result => {
+          if (result.status === 200) {
+            messageArea.innerHTML = '<div class="message success">' + result.body.message + '</div>';
+            // Store the filename for the preprocessing step
+            window.uploadedFilename = result.body.filename;
+            // Transition: Hide the upload section and show the preprocessing section
+            document.getElementById('upload-section').classList.remove('active');
+            document.getElementById('preprocessing-section').classList.add('active');
+          } else {
+            messageArea.innerHTML = '<div class="message error">' + result.body.error + '</div>';
+          }
+        })
+        .catch(error => {
+          console.error("Upload error:", error);
+          messageArea.innerHTML = '<div class="message error">An unexpected error occurred.</div>';
+        });
+      });
+    
+      // --- Preprocessing Section: AJAX call to /preprocess ---
+      const preprocessBtn = document.getElementById('preprocess-btn');
+      preprocessBtn.addEventListener('click', function() {
+        const preprocessMessage = document.getElementById('preprocess-message');
+        const preprocessLogs = document.getElementById('preprocess-logs');
+    
+        preprocessMessage.innerHTML = '<div class="message info">Preprocessing started...</div>';
+        preprocessLogs.innerHTML = ''; // Clear previous logs
+    
+        // Disable the "Next: Train Model" button until logs are finished
+        const nextToTrainingBtn = document.getElementById('training');
+        nextToTrainingBtn.disabled = true;
+    
+        // Send a JSON request with the uploaded filename
+        fetch("{{ url_for('preprocess_file') }}", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ filename: window.uploadedFilename })
+        })
+        .then(response => response.json().then(data => ({ status: response.status, body: data })))
+        .then(result => {
+          if (result.status === 200) {
+            preprocessMessage.innerHTML += '<div class="message success">' + result.body.message + '</div>';
+    
+            let logs = result.body.logs; // Get logs array
+            let index = 0;
+    
+            function displayNextLog() {
+              if (index < logs.length) {
+                let logItem = document.createElement('div');
+                logItem.className = 'log-entry';
+                logItem.textContent = logs[index];
+                preprocessLogs.appendChild(logItem);
+    
+                // Trigger CSS animation after a slight delay
+                setTimeout(() => {
+                  logItem.classList.add('show');
+                }, 10);
+    
+                // Auto-scroll to the latest log
+                preprocessLogs.scrollTop = preprocessLogs.scrollHeight;
+    
+                index++;
+                setTimeout(displayNextLog, 800); // Delay before showing the next log (800ms)
+              } else {
+                // Once all logs are displayed, show the download link
+                const downloadLink = document.getElementById('download-link');
+                downloadLink.href = result.body.download_url;
+                downloadLink.style.display = 'inline-block';
+                // Enable the "Next: Train Model" button
+                nextToTrainingBtn.disabled = false;
+              }
+            }
+    
+            displayNextLog(); // Start displaying logs one by one
+          } else {
+            preprocessMessage.innerHTML = '<div class="message error">' + result.body.error + '</div>';
+          }
+        })
+        .catch(error => {
+          console.error("Preprocessing error:", error);
+          preprocessMessage.innerHTML = '<div class="message error">An unexpected error occurred during preprocessing.</div>';
+        });
+      });
+    
+      // --- Next Button: Transition to Training Section ---
+      const trainingTransitionBtn = document.getElementById('training');
+      trainingTransitionBtn.addEventListener('click', function() {
+        // Hide the preprocessing section
+        document.getElementById('preprocessing-section').classList.remove('active');
+        // Show the training section
+        document.getElementById('training-section').classList.add('active');
+        // Smooth scroll to the training section
+        document.getElementById('training-section').scrollIntoView({ behavior: 'smooth' });
+      });
+    
+      // --- Training Section: Trigger Model Training on button click ---
+      const trainModelBtn = document.getElementById('train-model-btn');
+      const downloadModelBtn = document.getElementById('download-model-btn');
+      if (trainModelBtn) {
+        trainModelBtn.addEventListener('click', function() {
+          const trainingLogs = document.getElementById('training-logs');
+          const bestModelDetails = document.getElementById('best-model-details');
+          const modelMetrics = document.getElementById('model-metrics');
+    
+          // Clear previous content
+          trainingLogs.innerHTML = '<div class="message info">Training started... Please wait.</div>';
+          bestModelDetails.innerHTML = '';
+          modelMetrics.innerHTML = '';
+    
+          // Pass the preprocessed file path (adjust this path as needed)
+          const preprocessedFilePath = 'path/to/preprocessed.csv';
+    
+          // Make AJAX call to the training endpoint (/start_training)
+          fetch("{{ url_for('start_training') }}", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ preprocessed_file_path: preprocessedFilePath })
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Check for errors
+            if (data.error) {
+              trainingLogs.innerHTML = `<div class="message error">${data.error}</div>`;
+              return;
+            }
+            
+            // Update training logs
+            trainingLogs.innerHTML = '<div class="message success">Training completed successfully.</div>';
+            downloadModelBtn.style.display = 'inline-block';
+            downloadModelBtn.href = "{{ url_for('download_model') }}";
+    
+            // Display best model details
+            bestModelDetails.innerHTML = `
+              <h2>Best Model: ${data.best_model_name}</h2>
+              <p>${data.best_model_details}</p>
+              <p>Score: ${data.best_model_score}</p>
+            `;
+    
+            // Build model metrics table dynamically
+            let tableHTML = `
+              <table class="metrics-table">
+                <thead>
+                  <tr>
+                    <th>Model</th>
+                    <th>${data.model_details[0].accuracy !== undefined ? 'Accuracy' : 'MSE'}</th>
+                    <th>${data.model_details[0].precision !== undefined ? 'Precision' : 'R2 Score'}</th>
+                    <th>Training Time (s)</th>
+                  </tr>
+                </thead>
+                <tbody>
+            `;
+            data.model_details.forEach(model => {
+              if (model.accuracy !== undefined) {
+                tableHTML += `
+                  <tr>
+                    <td>${model.name}</td>
+                    <td>${model.accuracy}</td>
+                    <td>${model.precision}</td>
+                    <td>${model.training_time}</td>
+                  </tr>
+                `;
+              } else {
+                tableHTML += `
+                  <tr>
+                    <td>${model.name}</td>
+                    <td>${model.mse}</td>
+                    <td>${model.r2_score}</td>
+                    <td>${model.training_time}</td>
+                  </tr>
+                `;
+              }
+            });
+            tableHTML += '</tbody></table>';
+            modelMetrics.innerHTML = tableHTML;
+          })
+          .catch(error => {
+            console.error("Training error:", error);
+            trainingLogs.innerHTML = '<div class="message error">An error occurred during training.</div>';
+          });
+        });
+      }
+    });
+    
+  </script>
+</body>
+</html>
