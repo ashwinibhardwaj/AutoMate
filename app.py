@@ -42,9 +42,9 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["MAIL_SERVER"] = "smtp.gmail.com"         # Adjust if using a different mail server
 app.config["MAIL_PORT"] = 587
 app.config["MAIL_USE_TLS"] = True
-app.config['MAIL_USERNAME'] = 'ashwini.10521@gmail.com'  
-app.config['MAIL_PASSWORD'] = 'vlvu mqzu mibx txxr'  
-app.config['MAIL_DEFAULT_SENDER'] = 'ashwini.10521@gmail.com' 
+app.config['MAIL_USERNAME'] = os.environ.get('email_id')
+app.config['MAIL_PASSWORD'] = os.environ.get('mail_pass')  
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('email_id')
 
 db = SQLAlchemy(app)
 mail = Mail(app)
@@ -247,7 +247,7 @@ def preprocess_file():
         df[col] = df[col].fillna(mode_val)
         logs.append(f"Filled {missing_count} missing values in categorical column '{col}' with: {mode_val}.")
 
-    # 4. (Optional) Transform numeric columns to approximate normal distribution
+    # 4.Transform numeric columns to approximate normal distribution
     if numeric_cols:
         try:
             pt = PowerTransformer(method='yeo-johnson')
@@ -260,7 +260,7 @@ def preprocess_file():
         except Exception as e:
             logs.append("Warning: Could not transform numeric columns: " + str(e))
     
-    # 6. (Optional) One-hot encode categorical columns
+    # 6. One-hot encode categorical columns
     if categorical_cols:
         df = pd.get_dummies(df, columns=categorical_cols, drop_first=True)
         logs.append("Applied one-hot encoding to categorical columns.")
